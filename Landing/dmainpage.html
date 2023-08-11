@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Arivagam</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+
+    <link href="css/main.css" rel="stylesheet" />
+    
+    <style>
+      body {
+          color: white;  }
+      
+      #todoContainer {
+          overflow-y: hidden; 
+          white-space: nowrap; 
+      }
+  
+      .dropdown-menu {
+          border: none;
+          background-color: #f8f9fa; 
+      }
+  
+      .dropdown-item {
+          color: #333; 
+      }
+  
+      .dropdown-item:hover {
+          background-color: #e9ecef; 
+      }
+      #todoContainer {
+          overflow-y: hidden; 
+          white-space: nowrap; 
+      }
+
+      .todo-item {
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          padding: 10px;
+          margin-right: 2%;
+          width: 48%;
+          display: inline-block;
+          vertical-align: top;
+          color: black; 
+          background-color: white;
+      }
+
+      .todo-item:nth-child(2n) {
+          margin-right: 0;
+      }
+
+      .todo-item p {
+          margin-bottom: 5px;
+      }
+
+      .todo-item button {
+          margin-top: auto;
+      }
+      .video-item-container {
+          display: inline-block;
+          width: 300px; 
+          margin: 10px;
+          overflow: hidden;
+          border: 1px solid #ccc;
+      }
+
+      .video-item img {
+          width: 100%;
+          height: auto;
+      }
+
+      .videos-container {
+          max-height: 400px; 
+          overflow-x: auto;
+          white-space: nowrap; 
+      }
+      h2:nth-of-type(1) {
+          color: black;
+          margin-top: 30px; 
+        }
+
+      h2:nth-of-type(1), .videos-container:nth-of-type(1) p {
+          color: black;
+        }
+
+        h2:nth-of-type(2), .videos-container:nth-of-type(2) p {
+          color: black;
+        }
+        .videos-container:nth-of-type(1) h4,
+        .videos-container:nth-of-type(2) h4 {
+          color: black;
+        }
+    </style>
+</head>
+<body id="page-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+      <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="#" data-translate="navbarTitle">Arivagam</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#about" data-translate="navbarNanba">Nanba</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about" data-translate="navbarChat">Groupchat</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about" data-translate="navbarMeet">Meet</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-translate="navbarLanguage">Language</a>
+                    <ul class="dropdown-menu">
+                      <li><button onclick="setLanguage('en')" class="dropdown-item">English</button></li>
+                      <li><button onclick="setLanguage('hi')" class="dropdown-item">हिंदी</button></li>
+                      <li><button onclick="setLanguage('ta')" class="dropdown-item">தமிழ்</button></li>
+                    </ul>
+                    
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-translate="navbarProfile">Profile</a>
+                  <ul class="dropdown-menu">
+                      <li><button onclick="" class="dropdown-item">Edit Profile</button></li>
+                      <li><button onclick="" class="dropdown-item">Logout</button></li>
+                  </ul>
+              </li>
+            </ul>
+        </div>
+    </div>
+  </nav>
+    
+    <header class="masthead">
+      <div class="container px-4 px-lg-5 h-100">
+        <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+          <div class="container mt-9">
+            <div class="row">
+              <div class="col-md-12">
+                <h1 id="welcomeText">Welcome to ARIVAGAM</h1>
+                <p id="welcomeMessage">
+                  Welcome back! It's a pleasure to have you here. We are here to assist you with your to-do list and support your journey of learning and growth. Together, we'll achieve your goals and make progress in various aspects of life. Let's collaborate and make the most of this opportunity to create a bright future!</p>
+               
+                <form id="todoForm">
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="todoPlaceholder" placeholder="Add a to-do item...">
+                    <input type="datetime-local" class="form-control" id="todoDateTime">
+                    <input type="number" class="form-control" id="timeFramePlaceholder" placeholder="Time frame in hours">
+                    <button class="btn btn-primary" type="submit">Add</button>
+                  </div>
+                </form>
+        
+                <div id="todoContainer">
+                  <div id="todoList">
+                  </div>
+                </div>
+                <div class="container mt-3">
+                  <div class="row justify-content-center">
+                      <div class="col-md-6">
+                          <div class="input-group">
+                              <input type="text" class="form-control" id="searchPlaceholder" placeholder="Type for the concept you want to learn today...">
+                              <div class="input-group-append">
+                                <button class="btn btn-primary" id="search-button">Learn</button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              </div>
+            </div>
+          </div>
+        
+          <script>
+            function addTodo() {
+              const todoInput = document.getElementById("todoInput");
+              const todoDateTime = document.getElementById("todoDateTime");
+              const todoTimeFrame = document.getElementById("todoTimeFrame");
+              const todoList = document.getElementById("todoList");
+        
+              if (todoInput.value.trim() !== "") {
+                const newTodoItem = document.createElement("div");
+                newTodoItem.classList.add("todo-item");
+        
+                const todoText = document.createElement("p");
+                todoText.innerText = todoInput.value;
+                newTodoItem.appendChild(todoText);
+        
+                const formattedDateTime = new Date(todoDateTime.value).toLocaleString();
+                const todoDateTimeText = document.createElement("p");
+                todoDateTimeText.innerText = "Added on: " + formattedDateTime;
+                newTodoItem.appendChild(todoDateTimeText);
+        
+                const todoTimeFrameText = document.createElement("p");
+                todoTimeFrameText.innerText = "Time frame: " + todoTimeFrame.value + " hours";
+                newTodoItem.appendChild(todoTimeFrameText);
+        
+                const deleteButton = document.createElement("button");
+                deleteButton.classList.add("btn", "btn-danger");
+                deleteButton.innerText = "Delete";
+                deleteButton.addEventListener("click", function () {
+                  todoList.removeChild(newTodoItem);
+                });
+                newTodoItem.appendChild(deleteButton);
+        
+                todoList.appendChild(newTodoItem);
+        
+                todoInput.value = "";
+                todoDateTime.value = "";
+                todoTimeFrame.value = "";
+              }
+            }
+        
+            const todoForm = document.getElementById("todoForm");
+            todoForm.addEventListener("submit", function (event) {
+              event.preventDefault();
+              addTodo();
+            });
+        
+            function redirectToLearnPage() {
+            window.location.href = "";
+          }
+          </script>
+        </div>
+      </div>
+  </header>
+  
+  <section>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12 text-center">
+                <div class="row">
+                    <div class="col-md-12">
+                      <h2 id="suggestedCourses" data-translate="suggestedCourses">Suggested Courses</h2>
+                      <div class="videos-container">
+                            <div class="video-list" id="suggestedVideoList">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                      <h2 data-translate="newlyAddedCourses">Newly added Courses</h2>
+                      <div class="videos-container">
+                            <div class="video-list" id="suggestedVideoList">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+  
+<footer class="bg-light py-5">
+    <div class="container px-4 px-lg-5">
+      <div class="small text-center text-muted" id="copyright">
+        <span data-translate="copyrightText">Copyright &copy; 2023 - Team Arivagam</span></div>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+<script src="js/scripts.js"></script>
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+function addVideo(title, description, thumbnailURL, videoURL) {
+  const videoList = document.getElementById("videoList");
+
+  const newVideoContainer = document.createElement("div");
+  newVideoContainer.classList.add("video-item-container"); 
+  const newVideoItem = document.createElement("div");
+  newVideoItem.classList.add("video-item");
+
+  const thumbnailImage = document.createElement("img");
+  thumbnailImage.src = thumbnailURL;
+  thumbnailImage.alt = "Video Thumbnail";
+  newVideoItem.appendChild(thumbnailImage);
+
+  const videoTitle = document.createElement("h4");
+  videoTitle.innerText = title;
+  newVideoItem.appendChild(videoTitle);
+
+  const videoDescription = document.createElement("p");
+  videoDescription.innerText = description;
+  newVideoItem.appendChild(videoDescription);
+
+  const watchButton = document.createElement("a");
+  watchButton.href = videoURL;
+  watchButton.classList.add("btn", "btn-primary");
+  watchButton.target = "_blank";
+  watchButton.innerText = "Watch Video";
+  newVideoItem.appendChild(watchButton);
+
+  newVideoContainer.appendChild(newVideoItem);
+  videoList.appendChild(newVideoContainer);
+}
+
+const videosData = [
+  {
+      title: "Sample Video 1",
+      description: "This is a sample video description for Video 1.",
+      thumbnailURL: "f1.png",
+      videoURL: "1.mp4"
+  },
+  {
+      title: "Sample Video 2",
+      description: "This is a sample video description for Video 2.",
+      thumbnailURL: "f1.png",
+      videoURL: "1.mp4"
+  },
+  {
+      title: "Sample Video 2",
+      description: "This is a sample video description for Video 2.",
+      thumbnailURL: "f1.png",
+      videoURL: "1.mp4"
+  },
+  {
+      title: "Sample Video 2",
+      description: "This is a sample video description for Video 2.",
+      thumbnailURL: "f1.png",
+      videoURL: "1.mp4"
+  },
+  {
+      title: "Sample Video 1",
+      description: "This is a sample video description for Video 1.",
+      thumbnailURL: "f1.png",
+      videoURL: "1.mp4"
+  },
+  {
+      title: "Sample Video 1",
+      description: "This is a sample video description for Video 1.",
+      thumbnailURL: "f1.png",
+      videoURL: "1.mp4"
+  },
+];
+
+videosData.forEach(video => {
+  addVideo(video.title, video.description, video.thumbnailURL, video.videoURL);
+});
+</script>
+<script>
+function addSuggestedVideo(title, description, thumbnailURL, videoURL) {
+const suggestedVideoList = document.getElementById("suggestedVideoList");
+
+const newSuggestedVideoContainer = document.createElement("div");
+newSuggestedVideoContainer.classList.add("video-item-container"); 
+
+const newSuggestedVideoItem = document.createElement("div");
+newSuggestedVideoItem.classList.add("video-item");
+
+const thumbnailImage = document.createElement("img");
+thumbnailImage.src = thumbnailURL;
+thumbnailImage.alt = "Video Thumbnail";
+newSuggestedVideoItem.appendChild(thumbnailImage);
+
+const videoTitle = document.createElement("h4");
+videoTitle.innerText = title;
+newSuggestedVideoItem.appendChild(videoTitle);
+
+const videoDescription = document.createElement("p");
+videoDescription.innerText = description;
+newSuggestedVideoItem.appendChild(videoDescription);
+
+const watchButton = document.createElement("a");
+watchButton.href = videoURL;
+watchButton.classList.add("btn", "btn-primary");
+watchButton.target = "_blank";
+watchButton.innerText = "Watch Video";
+newSuggestedVideoItem.appendChild(watchButton);
+
+newSuggestedVideoContainer.appendChild(newSuggestedVideoItem); 
+suggestedVideoList.appendChild(newSuggestedVideoContainer); 
+}
+
+const suggestedVideosData = [
+{
+title: "Suggested Video 1",
+description: "This is a suggested video description for Video 1.",
+thumbnailURL: "f1.png",
+videoURL: "1.mp4",
+},
+{
+title: "Suggested Video 2",
+description: "This is a suggested video description for Video 2.",
+thumbnailURL: "f1.png",
+videoURL: "1.mp4",
+},
+{
+      title: "Sample Video 2",
+      description: "This is a sample video description for Video 2.",
+      thumbnailURL: "f1.png",
+      videoURL: "1.mp4"
+  },
+  {
+      title: "Sample Video 2",
+      description: "This is a sample video description for Video 2.",
+      thumbnailURL: "f1.png",
+      videoURL: "1.mp4"
+  },
+  {
+      title: "Sample Video 1",
+      description: "This is a sample video description for Video 1.",
+      thumbnailURL: "f1.png",
+      videoURL: "1.mp4"
+  },
+  {
+      title: "Sample Video 1",
+      description: "This is a sample video description for Video 1.",
+      thumbnailURL: "f1.png",
+      videoURL: "1.mp4"
+  },
+];
+
+suggestedVideosData.forEach((video) => {
+addSuggestedVideo(
+video.title,
+video.description,
+video.thumbnailURL,
+video.videoURL
+);
+});
+</script>
+<script>
+const translations = {
+en: {
+navbarTitle: "Arivagam",
+navbarNanba: "Nanba",
+navbarChat: "Groupchat",
+navbarMeet: "Meet",
+navbarLanguage: "Language",
+navbarProfile: "Profile",
+welcomeText: "Welcome to ARIVAGAM",
+welcomeMessage:
+  "Welcome back! It's a pleasure to have you here. We are here to assist you with your to-do list and support your journey of learning and growth. Together, we'll achieve your goals and make progress in various aspects of life. Let's collaborate and make the most of this opportunity to create a bright future!",
+todoPlaceholder: "Add a to-do item...",
+timeFramePlaceholder: "Time frame in hours",
+searchPlaceholder: "Type for the concept you want to learn today...",
+learnButton: "Learn",
+suggestedCourses: "Suggested Courses",
+newlyAddedCourses: "Newly added Courses",
+watchVideoButton: "Watch Video",
+copyrightText: "Copyright © 2023 - Team Arivagam",
+},
+hi: {
+navbarTitle: "अरिवागम",
+navbarNanba: "दोस्त",
+navbarChat: "समूह चैट",
+navbarMeet: "मिलना",
+navbarLanguage: "भाषा",
+navbarProfile: "प्रोफ़ाइल",
+welcomeText: "आरिवगम में आपका स्वागत है",
+welcomeMessage:
+  "Wवापस स्वागत है! आपके यहाँ होने पर खुशी हुई। हम आपको आपकी काम की सूची में सहायता करने और आपके सीखने और विकास के सफर का समर्थन करने के लिए यहाँ हैं। साथ मिलकर, हम आपके लक्ष्यों को प्राप्त करेंगे और जीवन के विभिन्न पहलुओं में प्रगति करेंगे। आइए मिलकर सहयोग करें और इस अवसर का सबसे अधिक उपयोग करें ताकि हम एक उज्ज्वल भविष्य बना सकें!",
+todoPlaceholder: "कोई काम जोड़ें...",
+timeFramePlaceholder: "समय अवधि घंटों में",
+searchPlaceholder: "आज आप किस विषय को सीखना चाहते हैं...",
+learnButton: "सीखें",
+suggestedCourses: "सुझाए गए कोर्स",
+newlyAddedCourses: "हाल ही में जोड़े गए कोर्स",
+watchVideoButton: "Watch Video",
+copyrightText: "Copyright © 2023 - Team Arivagam",
+},
+ta: {
+navbarTitle: "அறிவகம்",
+navbarNanba: "நண்பா",
+navbarChat: "குழுநேரம்",
+navbarMeet: "சந்திப்பு",
+navbarLanguage: "மொழி",
+navbarProfile: "சுயவிவரம்",
+welcomeText: "அறிவகம் வருக!",
+welcomeMessage:
+"மீண்டும் வரவேற்பை அனுபவிக்க வார்த்தகத்தின் அதிசயம் உங்களை உங்கள் பட்டியலில் உத்தமம் பணிக்க உத்திகமாக உள்ளது. ஒன்றிணைந்து, நாங்கள் உங்கள் லக்ஷ்யங்களை அடையாளப்படுத்தி விளக்குகின்றோம் மற்றும் வளர்ச்சி வளர்ச்சிக்காக உங்கள் பயணத்தை ஆதரிக்கின்றோம். ஒன்றிணைவு செய்ய, இந்த வாய்ப்பை உருவாக்கி வளர்ச்சி உருவாக்க வார்த்தகத்தின் செயல்திட்டத்தை செயல்படுத்த வார்த்தகத்தின் வரவேற்பை உத்தமமாக உபயோகிக்க வேண்டும்!",
+todoPlaceholder: "ஒரு செய்முறையைச் சேர்க்கவும்...",
+timeFramePlaceholder: "நேர வளம் மணிக்கலங்களில்",
+searchPlaceholder: "உங்கள் அவசியத்திற்கு இன்னும் எந்த தலைப்பு கற்க...",
+learnButton: "அறிந்து கொள்ளுங்கள்",
+suggestedCourses: "பரிந்துரைக்கப்படும் பாடங்கள்",
+newlyAddedCourses: "புதியதாக சேர்க்கப்பட்ட பாடங்கள்",
+watchVideoButton: "காண்க காட்சி",
+copyrightText: "பதிப்பிரச்சனை © 2023 - அறிவகம் குழு"
+},
+};
+
+function setLanguage(language) {
+const translate = (key) => translations[language][key] || key;
+
+document.querySelectorAll("[data-translate]").forEach((element) => {
+element.innerText = translate(element.getAttribute("data-translate"));
+});
+
+document.querySelector("#welcomeText").innerText = translate("welcomeText");
+document.querySelector("#welcomeMessage").innerText = translate("welcomeMessage");
+document.querySelector("#todoInput").setAttribute("placeholder", translate("todoPlaceholder"));
+document.querySelector("#todoTimeFrame").setAttribute("placeholder", translate("timeFramePlaceholder"));
+document.querySelector("#search-input").setAttribute("placeholder", translate("searchPlaceholder"));
+document.querySelector("#search-button").innerText = translate("learnButton");
+document.querySelector("#suggestedCourses").innerText = translate("suggestedCourses");
+document.querySelector("#newlyAddedCourses").innerText = translate("newlyAddedCourses");
+document.querySelector("#watchButton").innerText = translate("watchVideoButton");
+document.querySelector(".small.text-center.text-muted").innerText = translate("copyrightText");
+}
+</script>
+
+<script>
+// Initialize with English as default language
+setLanguage('en');
+</script>
+</body>
+</html>

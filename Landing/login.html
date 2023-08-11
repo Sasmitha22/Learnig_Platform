@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Arivagam</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap Icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+    <!-- SimpleLightbox plugin CSS-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <style>
+        .dropdown-menu {
+            border: none;
+            background-color: #f8f9fa; 
+        }
+    
+        .dropdown-item {
+            color: #333; 
+        }
+    
+        .dropdown-item:hover {
+            background-color: #e9ecef; 
+        }
+    </style>
+</head>
+<body id="page-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="multi.html" data-translate="navbarTitle">Arivagam</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about" data-translate="navbarAbout">About</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-translate="navbarLanguage">Language</a>
+                        <ul class="dropdown-menu">
+                            <li><button onclick="setLanguageEnglish()" class="dropdown-item">English</button></li>
+                            <li><button onclick="setLanguageTamil()" class="dropdown-item">தமிழ்</button></li>
+                            <li><button onclick="setLanguageHindi()" class="dropdown-item">हिंदी</button></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="login.html" data-translate="navbarLogin">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="masthead">
+        <div class="container px-4 px-lg-5 h-100">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                <!-- Login Form -->
+                <section class="page-section" id="login">
+                    <div class="container px-4 px-lg-5">
+                        <div class="row gx-4 gx-lg-5 justify-content-center">
+                            <div class="col-lg-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h2 class="card-title text-center" data-translate="loginTitle">Login</h2>
+                                        <form>
+                                            <div class="mb-5">
+                                                <label for="username" class="form-label" data-translate="usernameLabel">Username</label>
+                                                <input type="text" class="form-control" id="username" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="password" class="form-label" data-translate="passwordLabel">Password</label>
+                                                <input type="password" class="form-control" id="password" required>
+                                            </div>
+                                            <div class="text-center">
+                                                <button type="submit" class="btn btn-primary" data-translate="loginButton">Login</button>
+                                                <br><br>
+                                                <p data-translate="newUserText">New User? &nbsp;<a href="signup.html" data-translate="signupLink">Signup</a></p>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </header>
+    <!-- Footer-->
+    <footer class="bg-light py-5">
+        <div class="container px-4 px-lg-5">
+            <div class="small text-center text-muted" data-translate="footerText">Copyright &copy; 2023 - Team Arivagam</div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- SimpleLightbox plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+<script>
+    function setLanguageTamil() {
+        document.querySelector("[data-translate='navbarTitle']").textContent = "அறிவகம்";
+        document.querySelector("[data-translate='navbarAbout']").textContent = "பற்றி";
+        document.querySelector("[data-translate='navbarLanguage']").textContent = "மொழி";
+        document.querySelector("[data-translate='navbarLogin']").textContent = "உள்நுழைக";
+        document.querySelector("[data-translate='loginTitle']").textContent = "உள்நுழைக";
+        document.querySelector("[data-translate='usernameLabel']").textContent = "பயனர்பெயர்";
+        document.querySelector("[data-translate='passwordLabel']").textContent = "கடவுச்சொல்";
+        document.querySelector("[data-translate='loginButton']").textContent = "உள்நுழைக";
+        document.querySelector("[data-translate='newUserText']").innerHTML = "புதிய பயனர்? &nbsp;<a href='signup.html' data-translate='signupLink'>பதிவு செய்க</a>";
+        document.querySelector("[data-translate='footerText']").textContent = "பதிப்புரிமை © 2023  - அறிவகம் குழு";
+    }
+
+    function setLanguageHindi() {
+        document.querySelector("[data-translate='navbarTitle']").textContent = "अरिवागम";
+        document.querySelector("[data-translate='navbarAbout']").textContent = "परिचय";
+        document.querySelector("[data-translate='navbarLanguage']").textContent = "भाषा";
+        document.querySelector("[data-translate='navbarLogin']").textContent = "लॉग इन करें";
+        document.querySelector("[data-translate='loginTitle']").textContent = "लॉग इन करें";
+        document.querySelector("[data-translate='usernameLabel']").textContent = "उपयोगकर्ता नाम";
+        document.querySelector("[data-translate='passwordLabel']").textContent = "पासवर्ड";
+        document.querySelector("[data-translate='loginButton']").textContent = "लॉग इन करें";
+        document.querySelector("[data-translate='newUserText']").innerHTML = "नया उपयोगकर्ता? &nbsp;<a href='signup.html' data-translate='signupLink'>साइन अप करें</a>";
+        document.querySelector("[data-translate='footerText']").textContent = "कॉपीराइट © 2023 - टीम अरिवागम";
+    }
+
+    function setLanguageEnglish() {
+        document.querySelector("[data-translate='navbarTitle']").textContent = "Arivagam";
+        document.querySelector("[data-translate='navbarAbout']").textContent = "About";
+        document.querySelector("[data-translate='navbarLanguage']").textContent = "Language";
+        document.querySelector("[data-translate='navbarLogin']").textContent = "Login";
+        document.querySelector("[data-translate='loginTitle']").textContent = "Login";
+        document.querySelector("[data-translate='usernameLabel']").textContent = "Username";
+        document.querySelector("[data-translate='passwordLabel']").textContent = "Password";
+        document.querySelector("[data-translate='loginButton']").textContent = "Login";
+        document.querySelector("[data-translate='newUserText']").innerHTML = "New User? &nbsp;<a href='signup.html' data-translate='signupLink'>Signup</a>";
+        document.querySelector("[data-translate='footerText']").textContent = "© 2023 - Team Arivagam";
+    }
+</script>
+</body>
+</html>

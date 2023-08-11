@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Arivagam</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+    <!-- SimpleLightbox plugin CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap) -->
+    <link href="css/styles.css" rel="stylesheet" />
+    
+    <style>
+        .dropdown-menu {
+            border: none;
+            background-color: #f8f9fa; 
+        }
+    
+        .dropdown-item {
+            color: #333; 
+        }
+    
+        .dropdown-item:hover {
+            background-color: #e9ecef; 
+        }
+    </style>
+</head>
+<body id="page-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="#" data-translate="navbarTitle">Arivagam</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about" data-translate="navbarAbout">About</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-translate="navbarLanguage">Language</a>
+                        <ul class="dropdown-menu">
+                            <li><button onclick="setLanguage('en')" class="dropdown-item">English</button></li>
+                            <li><button onclick="setLanguage('hi')" class="dropdown-item">हिंदी</button></li>
+                            <li><button onclick="setLanguage('ta')" class="dropdown-item">தமிழ்</button></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="login.html" data-translate="navbarLogin">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Masthead -->
+    <header class="masthead">
+        <div class="container px-4 px-lg-5 h-100">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                <div class="col-lg-8 align-self-end">
+                    <h2 class="text-white font-weight-bold" data-translate="header">Education: Where Boundaries Disappear and Potential Soars!</h2>
+                    <hr class="divider" />
+                </div>
+                <div class="col-lg-8 align-self-baseline">
+                    <p class="text-white-75 mb-5" data-translate="description">With a resolute commitment to inclusivity, Arivagam embraces individuals of all abilities, providing an open and accessible space for learning. We believe that education knows no boundaries, and our platform ensures that people with disabilities can participate fully.</p>
+                    <a class="btn btn-primary btn-xl" href="#about" data-translate="findOutMore">Find Out More</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="page-section bg-primary" id="about">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="text-white mt-0" data-translate="aboutTitle">Join our gathering.</h2>
+                    <hr class="divider divider-light" />
+                    <p class="text-white-75 mb-4" data-translate="aboutDescription">Join us on this transformative journey where education transcends barriers, empowering every learner to thrive and excel.</p>
+                    <a class="btn btn-light btn-xl" href="login.html" data-translate="aboutGetStarted">Get Started!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Your other sections and content -->
+    <!-- ... -->
+
+    <!-- JavaScript for language switching -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Function to change the language and update the content
+        function setLanguage(lang) {
+            $("[data-translate]").each(function() {
+                var key = $(this).data("translate");
+                $(this).text(translations[lang][key]);
+            });
+        }
+
+        // JSON translations
+        var translations = {
+            "en": {
+                "navbarTitle": "Arivagam",
+                "navbarAbout": "About",
+                "header": "Education: Where Boundaries Disappear and Potential Soars!",
+                "description": "With a resolute commitment to inclusivity, Arivagam embraces individuals of all abilities, providing an open and accessible space for learning. We believe that education knows no boundaries, and our platform ensures that people with disabilities can participate fully.",
+                "findOutMore": "Find Out More",
+                "aboutTitle": "Join our gathering.",
+                "aboutDescription": "Join us on this transformative journey where education transcends barriers, empowering every learner to thrive and excel.",
+                "aboutGetStarted": "Get Started!"
+            },
+            "hi": {
+                "navbarTitle": "अरिवगम",
+                "navbarAbout": "विषय में",
+                "navbarLogin": "लॉग इन करें",
+                "navbarLanguage": "भाषा",
+                "header": "शिक्षा: जहां सीमाएं गायब होती हैं और संभावना ऊंची होती है!",
+                "description": "सम्मिलिता के प्रति एक दृढ़ समर्पण के साथ, अरिवगम विभिन्न क्षमताओं वाले व्यक्तियों को गोद लेता है, जो सीखने के लिए खुले और पहुंचयोग्य स्थान प्रदान करता है। हम मानते हैं कि शिक्षा कोई सीमा नहीं जानती है, और हमारा प्लेटफ़ॉर्म यह सुनिश्चित करता है कि विकलांगता वाले लोग पूरी तरह से भाग लें।",
+                "findOutMore": "अधिक जानें",
+                "aboutTitle": "हमारे समूह में शामिल हों।",
+                "aboutDescription": "हर छात्र को प्रेरित करके और उन्नत करके शिक्षा द्वारा सीमाएं अतीत करने के लिए हमारे साथ जुड़ें।",
+                "aboutGetStarted": "शुरू हो जाओ!"
+            },
+            "ta": {
+                "navbarTitle": "அறிவகம்",
+                "navbarAbout": "பற்றி",
+                "navbarLogin": "உள்நுழைக",
+                "navbarLanguage": "மொழி",
+                "header": "கல்வி: எங்குக் கட்டுப்பாடுகள் மறக்கப்பட்டன மற்றும் திறமை அடைகிறது!",
+                "description": "அறிவகம் அனைத்து திறமைகளுடன் இணைந்து இருக்கும் மக்களை எடுத்துக்கொண்டு, கல்வி குறைவுகள் எதிர்கால மற்றும் அண்ணாவிடத்தில் கிடைக்கும் திறமைகளுக்கு இடையிடப்படுவதை உறுதிப்படுத்துகிறது. கல்வி எந்த கட்டுப்பாடுகளையும் அறிந்தவர்களுக்கு உள்ளிடுகின்றது",
+                "findOutMore": "மேலும் அறிய",
+                "aboutTitle": "எங்கள் கூட்டத்தில் சேருங்கள்.",
+                "aboutDescription": "இது மாற்றுமாற்று பயணத்தின் மூலம் நேரிடும் கல்வி புரிகின்றவர் அனைவருக்கும் பொறியியல் ஆக்சலிடுகின்றது.",
+                "aboutGetStarted": "ஆரம்பிக்கவும்!"
+            }
+        };
+
+        // Set the default language (English)
+        setLanguage('en');
+    </script>
+        <!-- Footer-->
+        <footer class="bg-light py-5">
+          <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2023 - Team Arivagam</div></div>
+      </footer>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+      <script src="js/scripts.js"></script>
+      <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+  </body>
+</html>
